@@ -1,0 +1,5 @@
+{
+  "name": "Hostel Hive",
+  "description": "An intuitive application for managing hostel accommodations. Track properties, tenants, and monthly payments with ease, featuring an AI-powered dashboard for insightful reports.",
+  "requestFramePermissions": []
+}
