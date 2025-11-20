@@ -23,15 +23,14 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: |
-          npm ci
+        run: npm ci
 
       - name: Build site
-        run: |
-          npm run build
+        run: npm run build
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
+        # Use the pages-specific uploader v3 (keeps you off the deprecated artifacts v3)
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
@@ -40,4 +39,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
