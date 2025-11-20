@@ -5,21 +5,17 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
 
-  // Allow overriding base from an env var (useful for local testing),
-  // otherwise default to the repo name path required for GitHub Pages.
-  const basePath = env.BASE_URL || '/hostel-hive/';
-
   return {
-    base: basePath,              // <-- important for GitHub Pages
+    base: '/hostel-hive/',   // REQUIRED for GitHub Pages
     server: {
       port: 3000,
       host: '0.0.0.0',
     },
     plugins: [react()],
-    define: {
-      'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
-    },
+
+    // ❌ REMOVE define block — Vite injects VITE_ vars automatically
+    // define: {},
+
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
