@@ -4,14 +4,15 @@ import { initializeApp } from 'firebase/app';
 // --- PASTE YOUR FIREBASE CONFIGURATION HERE ---
 // You can get this from your Firebase project settings.
 // After creating a web app in the Firebase console, it will give you this object.
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCe-0gyPIikH-ZUsIKQC0eRlU7p2x9fejM",
-  authDomain: "hostelhivemanager-d8a50.firebaseapp.com",
-  projectId: "hostelhivemanager-d8a50",
-  storageBucket: "hostelhivemanager-d8a50.firebasestorage.app",
-  messagingSenderId: "956145466471",
-  appId: "1:956145466471:web:c81f89b80d0722ff0028c2",
-  measurementId: "G-86BTCCL74P"
+  apiKey: "AIzaSyB8ftp-AMFf1fZzuIdMfxr0kBF6gg2sxWA",
+  authDomain: "hostelmanagerbinay.firebaseapp.com",
+  projectId: "hostelmanagerbinay",
+  storageBucket: "hostelmanagerbinay.firebasestorage.app",
+  messagingSenderId: "1002072857042",
+  appId: "1:1002072857042:web:7d11fc322d2bd73e02d00b",
+  measurementId: "G-XPEX305QWF"
 };
 // -------------------------------------------------
 
