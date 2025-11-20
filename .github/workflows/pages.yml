@@ -11,18 +11,33 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # If you need a build step (e.g., npm, hugo, jekyll), add it before uploading the artifact.
-      # This workflow assumes your static site files (index.html, assets...) are at repo root.
-      - name: Upload artifact to GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          path: './'
+          node-version: '18'
 
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Build site
+        run: |
+          npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
